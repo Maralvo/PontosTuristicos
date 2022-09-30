@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from xml.etree.ElementInclude import include
+#   from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
@@ -26,7 +26,7 @@ from avaliacoes.api.viewsets import AvaliacaoViewSet
 
 
 router = routers.DefaultRouter()
-router.register(r'pontoturistico', PontoTuristicoViewSet)
+router.register(r'pontoturistico', PontoTuristicoViewSet, basename='True')
 router.register(r'atracoes', AtracaoViewSet)
 router.register(r'enderecos', EnderecosViewSet)
 router.register(r'avaliacoes', AvaliacaoViewSet)
