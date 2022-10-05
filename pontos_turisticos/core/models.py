@@ -1,4 +1,4 @@
-from tokenize import blank_re
+from distutils.command.upload import upload
 from django.db import models
 from atracoes.models import Atracao
 from comentarios.models import Comentario
@@ -15,7 +15,8 @@ class PontoTuristico(models.Model):
     comentarios = models.ManyToManyField(Comentario)
     avaliacoes = models.ManyToManyField(Avaliacao)
     endereco = models.ForeignKey(
-        Endereco, on_delete=models.CASCADE, null=True,blank=True)
+        Endereco, on_delete=models.CASCADE, null=True, blank=True)
+    foto = models.ImageField(upload_to='pontos_turisticos', null=True, blank=True)
 
 
 def __str__(self):

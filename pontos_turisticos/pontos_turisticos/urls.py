@@ -1,3 +1,4 @@
+
 """pontos_turisticos URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,6 +19,9 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
 from rest_framework import routers
+from django.conf import settings
+from django.conf.urls.static import static
+#from tomlkit import document
 from core.api.viewsets import PontoTuristicoViewSet
 from atracoes.api.viewsets import AtracaoViewSet
 from enderecos.api.viewsets import EnderecosViewSet
@@ -36,4 +40,5 @@ router.register(r'comentarios', ComentarioViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-]
+  
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
